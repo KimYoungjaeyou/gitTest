@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>CloudZ Template</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+		<script type="text/javascript" src="../assets/js/vendors/jquery/jquery-1.11.2.js"></script>
+	 	<script type="text/javascript" src="../assets/js/vendors/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../assets/js/ui.js"></script>
+		<script type="text/javascript" src="../assets/js/calendar.js"></script>
+		<link rel="stylesheet" href="../assets/css/cloudz.css">
+		<script src="../assets/angularjs/app.js"></script>
+		<script src="../assets/angularjs/controller.js"></script>
+		<script src="../assets/angularjs/directives.js"></script>
+		<script src="../assets/angularjs/service.js"></script>
+		<script src="../assets/angularjs/router.js"></script>
+		<script src="../assets/js/ui.js"></script>
+		<script src="../assets/js/calendar.js"></script>
+		<script src="../fetch/fetch.js"></script>
+</head>
+<body>
+<!-- wrapper -->
+<div class="wrapper">
+	<!-- header -->
+	<header> <!--header class="minimized"-->
+		<!-- active 되었을 때 -->
+		<div class="inhead">
+			<h1>
+				<a href="index.html"><span class="invisible">CLOUDZ CONSOLE</span></a>
+			</h1>
+		</div>
+		<nav>
+			<ul class="gnb">
+				<!-- <li><a href="#"><img class="icon-img" src="../assets/img/function-white.png"><span class="name"> FUNCTIONS</span></a>
+				<li class="active"><a href="#"><i class="fa fa-plus-circle"></i><span> 새로만들기</span></a> -->
+				<li><a href="index.html"><span> 액션</span></a>
+				<li><a href="trigger.html"><span>  트리거 설정</span></a>
+				<li><a href="monitoring.html"><span> 모니터링</span></a>
+				<li><a href="admin.skcc.com/5601"><span> 리포팅</span></a>
+			<!--	<li class="subelements active"><a href="#"><span> 요금조회</span></a>
+					 <ul style="display:block;">
+						<li class="active"><a href="#">- 시작하기</a></li>
+						<li><a href="#">- 권한</a></li>
+						<li><a href="#">- 문서</a></li>
+						<li><a href="#">- 지원</a></li>
+					</ul> -->
+				</li>
+				<li class="btn-toggle">
+					<div class="btn-icons-lg">
+						<button type="button" class="btn bg-normal nav"><span class="minify">접기</span></button>
+						<!--button type="button" class="btn bg-normal"><span class="maxfy">펼치기</span></button-->
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<!-- header -->
+
+	<!-- container -->
+	<div class="container">
+		<!-- utils -->
+		<div class="utils">
+			<div class="reverse">
+			</div>
+		</div>
+<!-- /utils -->
+<!-- locations-area -->
+<div class="locations-area">
+	<div class="select">
+		<div class="select size-lg type-layer" style="width:130px;"><!-- option 값의 최대 글자 수에 맞게 넓이 지정  -->
+			<div class="target">
+				<ul>
+					<li><label class="selected"><input type="radio" name="names" checked="checked">option 1</label></li>
+					<li><label><input type="radio" name="names">option 2</label></li>
+					<li><label><input type="radio" name="names">option 3</label></li>
+					<li><label><input type="radio" name="names">option 4</label></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+				<!-- 현재 페이지 위치 -->
+	<div class="breadscrumb">
+		<a href="monitoring.html">모니터링</a>
+	</div>
+				 <!-- //현재 페이지 위치 -->
+</div>
+<!-- /locations-area -->
+
+		<div class="contents">
+			<div class="inners">
+				<div class="top-area">
+					<h2 class="title">모니터링</h2>
+					<p>Snapshot 모니터링 페이지 입니다.</p>
+				</div>
+				<div class="tabs">
+					<ul class="tabType1">
+						<li><a href="#tabs1-1" class="tab-triggers active"><span>성공여부조회</span></a></li>
+						<li><a href="#tabs1-2" class="tab-triggers"><span>API호출건수</span></a></li>
+						<li><a href="#tabs1-3" class="tab-triggers"><span>상품호출건수</span></a></li>
+						<li><a href="#tabs1-4" class="tab-triggers"><span>오류조회</span></a></li>
+					</ul>
+
+					<div id="tabs1-1" class="tab-contents active">
+                        <!--  accordion  -->
+                        <div class="accordion">
+                            <div class="btn-block btn-icons-sm">
+                                <span class="title">상품목록</span>
+                            </div>
+                            <div class="accordion-content">
+                                <table class="type-vertical">
+                                        <colgroup>
+                                            <col style="width:14%">
+                                            <col style="width:10%">
+																						<col style="width:14%">
+                                            <col style="width:14%">
+                                            <col style="width:10%">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th><a href="#">상품번호 <i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+                                                <th><a href="#">상품상태<i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+																								<th><a href="#">상품상태코드<i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+                                                <th><a href="#">상품 생성 요청시간<i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+                                                <th><a href="#">상품 삭제 요청시간<i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+																						<tr>
+																								<td>123456789</td>
+																								<td>미존재</td>
+																								<td>999 auth오류</td>
+																								<td>2018-07-10 12:40</td>
+																								<td> 	</td>
+																						</tr>
+                                            <tr>
+                                                <td>123456789</td>
+                                                <td>생성</td>
+																								<td>200 정상생성</td>
+                                                <td>2018-07-11 11:30</td>
+                                                <td> 	</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!--  //accordion  -->
+														<div class="reverse">
+																<div class="search-area point-line" style="width:400px;"> <!-- 상황에 따라 넓이 지정  -->
+																		<form> <!-- form tag 상황에 맞게 사용  -->
+																				<input type="search" class="size-xl" placeholder="상품번호 조회" value="">
+																				<button type="button" class="btn-search"><i class="fa fa-search"></i></button>
+																		</form>
+																</div>
+														</div>
+                        </div>
+							<div id="tabs1-2" class="tab-contents">
+		                        <!--  accordion  -->
+		                        <div class="accordion">
+		                            <div class="btn-block btn-icons-sm">
+		                                <span class="title">API호출건수 조회</span>
+		                            </div>
+
+		                            <div class="accordion-content">
+		                                <table class="type-vertical">
+		                                        <colgroup>
+		                                            <col style="width:50%">
+		                                            <col style="width:50%">
+		                                        </colgroup>
+		                                        <thead>
+		                                            <tr>
+		                                                <th>호출API</th>
+		                                                <th>API요청건수</th>
+		                                            </tr>
+		                                        </thead>
+		                                        <tbody>
+		                                            <tr>
+		       																						<td>생성</td>
+			                                                <td>1,200,000</td>
+																											<td> </td>
+																										</td>
+		                                            </tr>
+																								<tr>
+																										<td>조회</td>
+																										<td>1,100,000</td>
+																										<td> </td>
+																									</td>
+																								</tr>
+																								<tr>
+																										<td>삭제</td>
+																										<td>100,000</td>
+																										<td> </td>
+																									</td>
+																								</tr>
+		                                        </tbody>
+		                                    </table>
+		                                </div>
+		                            </div>
+		                            <!--  //accordion  -->
+																<div class="center-align">
+																<td>
+																	<span class="datepicker">
+																		<input type="text" id="startDate"  class="size-lg"  placeholder="YYYY.MM.DD" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="" style="width:200px;">
+																		<button type="button" class="btn bg-white ui-datepicker-trigger" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="">...</button>
+																	</span>
+
+																<td>
+																	<span class="datepicker">
+																		<input type="text" id="startDate"  class="size-lg"  placeholder="YYYY.MM.DD" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="" style="width:200px;">
+																		<button type="button" class="btn bg-white ui-datepicker-trigger" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="">...</button>
+																	</span>
+																</td>
+																</div>
+																<div class="reverse">
+																				<form> <!-- form tag 상황에 맞게 사용  -->
+																						<button type="button" class="btn-search" style="width: 54px;height: 54px;font-size: 18px;color: #fff;background-color: #ea0530;cursor: pointer;"><i class="fa fa-search"></i></button>
+																				</form>
+																</div>
+		                        </div>
+
+									<div id="tabs1-3" class="tab-contents">
+				                        <!--  accordion  -->
+				                        <div class="accordion">
+				                            <div class="btn-block btn-icons-sm">
+				                                <span class="title">상품건수 조회</span>
+				                            </div>
+
+				                            <div class="accordion-content">
+																			<table class="type-vertical">
+			                                        <colgroup>
+			                                            <col style="width:50%">
+			                                            <col style="width:50%">
+			                                        </colgroup>
+			                                        <thead>
+			                                            <tr>
+			                                                <th>호출API</th>
+			                                                <th>상품요청건수</th>
+			                                            </tr>
+			                                        </thead>
+			                                        <tbody>
+			                                            <tr>
+			       																						<td>생성</td>
+				                                                <td>5,200,000</td>
+																												<td> </td>
+																											</td>
+			                                            </tr>
+																									<tr>
+																											<td>조회</td>
+																											<td>4,100,000</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>삭제</td>
+																											<td>800,000</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+			                                        </tbody>
+			                                    </table>
+			                                </div>
+			                            </div>
+			                            <!--  //accordion  -->
+																	<div class="center-align">
+																	<td>
+																		<span class="datepicker">
+																			<input type="text" id="startDate"  class="size-lg"  placeholder="YYYY.MM.DD" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="" style="width:200px;">
+																			<button type="button" class="btn bg-white ui-datepicker-trigger" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="">...</button>
+																		</span>
+
+																	<td>
+																		<span class="datepicker">
+																			<input type="text" id="startDate"  class="size-lg"  placeholder="YYYY.MM.DD" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="" style="width:200px;">
+																			<button type="button" class="btn bg-white ui-datepicker-trigger" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="">...</button>
+																		</span>
+																	</td>
+																	</div>
+				                            <!--  //accordion  -->
+																		<div class="reverse">
+																						<form> <!-- form tag 상황에 맞게 사용  -->
+																								<button type="button" class="btn-search" style="width: 54px;height: 54px;font-size: 18px;color: #fff;background-color: #ea0530;cursor: pointer;"><i class="fa fa-search"></i></button>
+																						</form>
+																		</div>
+				                        </div>
+									<div id="tabs1-4" class="tab-contents">
+				                        <!--  accordion  -->
+				                        <div class="accordion">
+				                            <div class="btn-block btn-icons-sm">
+				                                <span class="title">오류조회</span>
+				                            </div>
+
+				                            <div class="accordion-content">
+																			<table class="type-vertical">
+			                                        <colgroup>
+			                                            <col style="width:50%">
+			                                            <col style="width:50%">
+			                                        </colgroup>
+			                                        <thead>
+			                                            <tr>
+			                                                <th>오류코드</th>
+			                                                <th>에러건수</th>
+			                                            </tr>
+			                                        </thead>
+			                                        <tbody>
+			                                            <tr>
+			       																						<td>999 auth오류</td>
+				                                                <td>3,280</td>
+																												<td> </td>
+																											</td>
+			                                            </tr>
+																									<tr>
+																											<td>801 Size1000이상</td>
+																											<td>332</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>901 ProdNo누락</td>
+																											<td>2,289</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>902 loadTimeout누락</td>
+																											<td>321</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>903 tileHeight누락</td>
+																											<td>221</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>904 tileWidth누락</td>
+																											<td>5</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>906 format누락</td>
+																											<td>512</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>907 prefix누락</td>
+																											<td>231</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>908 imgLoc누락</td>
+																											<td>65</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>909 quality누락</td>
+																											<td>40</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>910 isLimitTraget누락</td>
+																											<td>432</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>911 priority누락</td>
+																											<td>321</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+																									<tr>
+																											<td>912 env누락</td>
+																											<td>18</td>
+																											<td> </td>
+																										</td>
+																									</tr>
+
+			                                        </tbody>
+			                                    </table>
+			                                </div>
+			                            </div>
+			                            <!--  //accordion  -->
+																	<div class="center-align">
+																	<td>
+																		<span class="datepicker">
+																			<input type="text" id="startDate"  class="size-lg"  placeholder="YYYY.MM.DD" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="" style="width:200px;">
+																			<button type="button" class="btn bg-white ui-datepicker-trigger" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="">...</button>
+																		</span>
+
+																	<td>
+																		<span class="datepicker">
+																			<input type="text" id="startDate"  class="size-lg"  placeholder="YYYY.MM.DD" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="" style="width:200px;">
+																			<button type="button" class="btn bg-white ui-datepicker-trigger" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd');" value="">...</button>
+																		</span>
+																	</td>
+																	</div>
+				                            <!--  //accordion  -->
+																		<div class="reverse">
+																						<form> <!-- form tag 상황에 맞게 사용  -->
+																								<button type="button" class="btn-search" style="width: 54px;height: 54px;font-size: 18px;color: #fff;background-color: #ea0530;cursor: pointer;"><i class="fa fa-search"></i></button>
+																						</form>
+																		</div>
+				                        </div>
+                        <!-- //tab-contents -->
+											</div>
+
+  		</div>
+
+
+	</div>
+
+</div>
+	<!-- /container -->
+</div>
+<!-- /contents -->
+</div>
+<!-- /wrapper -->
+<!-- footer -->
+<div class="footer">
+	COPYRIGHTⓒ2018 BY SK HOLDINGS CO., LTD. ALL RIGHT RESERVED
+</div>
+<!-- /footer -->
+<!-- script -->
+
+<script type="text/javascript">
+
+</script>
+<!-- /script -->
+
+
+</body>
+</html>

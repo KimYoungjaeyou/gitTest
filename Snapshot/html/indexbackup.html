@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>CloudZ Template</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="../assets/angularjs/app.js"></script>
+		<script src="../assets/angularjs/controller.js"></script>
+		<script src="../assets/angularjs/directives.js"></script>
+		<script src="../assets/angularjs/service.js"></script>
+		<script src="../assets/js/vendors/jquery/jquery-1.11.2.js"></script>
+	 	<script src="../assets/js/vendors/jquery/jquery-ui.min.js"></script>
+		<script src="../assets/js/ui.js"></script>
+		<script src="../assets/js/calendar.js"></script>
+		<script src="../fetch/fetch.js"></script>
+		<link rel="stylesheet" href="../assets/css/cloudz.css">
+
+</head>
+<body ng-app='ss' ng-controller='ssCtrl'>
+<!-- wrapper -->
+<div class="wrapper">
+  <header> <!--header class="minimized"-->
+		<!-- active 되었을 때 -->
+		<div class="inhead">
+			<h1>
+				<a href="index.html"><span class="invisible">CLOUDZ CONSOLE</span></a>
+			</h1>
+		</div>
+		<nav>
+			<ul class="gnb">
+				<!-- <li><a href="#"><img class="icon-img" src="../assets/img/function-white.png"><span class="name"> FUNCTIONS</span></a>
+				<li class="active"><a href="#"><i class="fa fa-plus-circle"></i><span> 새로만들기</span></a> -->
+				<li><a href="index.html"><span> 액션</span></a>
+				<li><a href="trigger.html"><span>  트리거 설정</span></a>
+				<li><a href="monitoring.html"><span> 모니터링</span></a>
+				<li><a href="admin.skcc.com/5601"><span> 리포팅</span></a>
+			<!--	<li class="subelements active"><a href="#"><span> 요금조회</span></a>
+					 <ul style="display:block;">
+						<li class="active"><a href="#">- 시작하기</a></li>
+						<li><a href="#">- 권한</a></li>
+						<li><a href="#">- 문서</a></li>
+						<li><a href="#">- 지원</a></li>
+					</ul> -->
+				</li>
+				<li class="btn-toggle">
+					<div class="btn-icons-lg">
+						<button type="button" class="btn bg-normal nav"><span class="minify">접기</span></button>
+						<!--button type="button" class="btn bg-normal"><span class="maxfy">펼치기</span></button-->
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<!-- container -->
+	<div class="container">
+	  <!-- utils -->
+		<div class="utils">
+			<div class="reverse">
+			</div>
+		</div>
+		<!-- /utils -->
+				<!-- locations-area -->
+				<div class="locations-area">
+								<!-- 현재 페이지 위치 -->
+					<div class="breadscrumb">
+						<a href="index.html">메인</a>
+					</div>
+				</div>
+				<!-- /locations-area -->
+				  <!-- contents -->
+					<div class="contents">
+						<div class="inners">
+							<div class="top-area">
+								<h2 class="title">Snapshot</h2>
+								<p>본 화면은 11번가 화면 캡처 저장 SaaS 운영을 위한 화면입니다. </p>
+							</div>
+							<div class="accordion">
+									<div class="btn-block btn-icons-sm">
+											<span class="title">서버목록</span>
+									</div>
+									<div class="accordion-content">
+											<table class="type-vertical">
+															<colgroup>
+																	<col style="width:33%">
+																	<col style="width:33%">
+																	<col style="width:33%">
+															</colgroup>
+															<thead>
+																	<tr>
+																			<th><a href="#">IP <i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+																			<th><a href="#">Hostname<i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+																			<th><a href="#">API재기동<i class="fa fa-angle-down" aria-hidden="true"></i></a></th>
+																	</tr>
+															</thead>
+															<tbody>
+																	<tr>
+																			<td>123.123.12.144</td>
+																			<td>admin</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>123.123.12.123</td>
+																			<td>gw01</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>123.123.12.345</td>
+																			<td>gw02</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.11</td>
+																			<td>snapshot01</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.22</td>
+																			<td>snapshot02</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.33</td>
+																			<td>snapshot03</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.44</td>
+																			<td>snapshot04</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.55</td>
+																			<td>snapshot05</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.66</td>
+																			<td>snapshot06</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.77</td>
+																			<td>snapshot07</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+																	<tr>
+																			<td>111.111.222.88</td>
+																			<td>snapshot08</td>
+																			<td><button type="button" class="btn size-xs bg-bombay">재기동</button></td>
+																			<td> 	</td>
+																	</tr>
+															</tbody>
+													</table>
+											</div>
+									</div>
+									<!--  //accordion  -->
+							</div>
+							<div class="footer">
+								COPYRIGHTⓒ2018 BY SK HOLDINGS CO., LTD. ALL RIGHT RESERVED
+							</div>
+						</div>
+						<!-- /contents -->
+		</div>
+		<!-- /container -->
+
+		<!-- footer -->
+
+		<!-- /footer -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /wrapper -->
+
+<!-- script -->
+<script>
+</script>
+<!-- /script -->
+
+
+</body>
+</html>
