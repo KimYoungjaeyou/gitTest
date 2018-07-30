@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title><%= title %></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+		<script src="../assets/js/vendors/jquery/jquery-1.11.2.js"></script>
+	 	<script src="../assets/js/vendors/jquery/jquery-ui.min.js"></script>
+		<script src="../assets/js/ui.js"></script>
+		<script src="../assets/js/calendar.js"></script>
+		<link rel="stylesheet" href="../assets/css/cloudz.css">
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		<div class="inhead">
+			<h1>
+				<a href="/main"><span class="invisible">CLOUDZ CONSOLE</span></a>
+			</h1>
+		</div>
+		<nav>
+			<ul class="gnb">
+				<li><a href="/main"><span> 액션</span></a></li>
+				<li><a href="/trigger"><span>  트리거 설정</span></a></li>
+				<li><a href="/monitoring"><span> 모니터링</span></a></li>
+				<li><a href="admin.skcc.com:5601"><span> 리포팅</span></a></li>
+			</ul>
+	  </nav>
+	</header>
+	<div class="container">
+		<div class="utils">
+    	<div class="reverse"></div>
+    </div>
+			<div class="locations-area">
+				<div class="breadscrumb">
+					<a href="trigger">트리거 설정</a>
+				</div>
+			</div>
+				<div class="contents">
+					 <div class="inners">
+						 <div class="top-area">
+					<h2 class="title">트리거 설정</h2>
+					<p>Snapshot AutoScaling을 위한 트리거 값을 설정하는 페이지 입니다.</p>
+				</div>
+				<div class="tabs">
+					<ul class="tabType1">
+						<li><a href="#tabs1-1" class="tab-triggers active"><span>처리건수설정</span></a></li>
+						<li><a href="#tabs1-2" class="tab-triggers"><span>Instance설정</span></a></li>
+					</ul>
+
+					<div id="tabs1-1" class="tab-contents active">
+						<p class="dec">현재 Snapshot 시간 당 평균 처리건수는 <b style="color:red;">100,000건</b> 입니다.</p>
+						<table class="type-form">
+								<colgroup>
+									<col style="width:204px">
+									<col style="width:204px">
+									<col style="width:100px">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>시간 당 평균 처리건수<em>*</em></th>
+										<td><input type="text" class="size-lg" placeholder="100,000" value="" style="width:80%;"></td>
+										<th>비고</th>
+										<td><input type="text" class="size-lg" placeholder="11절 평균처리건수 설정" value="" style="width:100%;"></td>
+									</tr>
+								</tbody>
+							</table>
+								<div class="btn-group">
+									<button type="button" class="btn size-xl bg-cinnabar pull-right">설정하기</button>
+								</div>
+              			</div>
+										<div id="tabs1-2" class="tab-contents">
+											<p class="dec">현재 Snapshot 처리를 위한 Instace 생성 개수는 <b style="color:red;">30개</b> 입니다.</p>
+											<table class="type-form">
+													<colgroup>
+														<col style="width:204px">
+														<col style="width:204px">
+														<col style="width:100px">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>추가 Instance 개수<em>*</em></th>
+															<td><input type="text" class="size-lg" placeholder="3" value="" style="width:80%;"></td>
+															<th>비고</th>
+															<td><input type="text" class="size-lg" placeholder="주말 대비" value="" style="width:100%;"></td>
+														</tr>
+													</tbody>
+												</table>
+													<div class="btn-group">
+														<button type="button" class="btn size-xl bg-cinnabar pull-right">설정하기</button>
+													</div>
+															</div>
+		</div>
+
+
+	</div>
+
+</div>
+	<!-- /container -->
+</div>
+<!-- /contents -->
+</div>
+<!-- /wrapper -->
+<!-- footer -->
+<div class="footer">
+	COPYRIGHTⓒ2018 BY SK HOLDINGS CO., LTD. ALL RIGHT RESERVED
+</div>
+<!-- /footer -->
+<!-- script -->
+
+<script type="text/javascript">
+
+</script>
+<!-- /script -->
+
+
+</body>
+</html>
