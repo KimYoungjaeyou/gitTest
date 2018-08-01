@@ -32,7 +32,6 @@ $(document).ready(function() { // ready function start
 	// select
 	basicSelect();
 	designSelect();
-//	userSelect();
 
 }); // ready function end
 
