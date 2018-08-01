@@ -106,59 +106,191 @@ router.get('/', function(req,res) {
 //       })
 //     }
 //   })
-
-
+// function formatDate(date) { var d = new Date(date), month = '' + (d.getMonth() + 1), day = '' + d.getDate(), year = d.getFullYear(); if (month.length < 2) month = '0' + month; if (day.length < 2) day = '0' + day; return [year, month, day].join('-'); }
+//
 // router.post('/api_result_count', function(req,res) {
-//    client.count({
-//     index: 'called_api-'+req.body.startDate,
+//
+//   var fromDate = new Date(req.body.fromDate);
+//   //var count = 0;
+// for (var sd = new Date(req.body.startDate); sd <= fromDate; sd.setDate(sd.getDate() + 1)) {
+//   var FG = formatDate(sd)
+//   var count  = client.count({
+//     index: 'called_api-'+FG,
 //   body: {
 //     query: {
 //       match: {
 //         "api" : "result"
 //       }
 //     }
-//   }},
-//     function(err,resp,status){
-//       var responsedate = {'scount' : resp.count}
-//       console.log(resp.count)
-//       return res.json(responsedate);
-//     }
-//   )
-  //
-  // client.search({
-  // index: 'called_api-'req.body.startDate
-  // },function(err,resp,status) {
-  // var hits = resp.hits.hits;
-  //
-  // if(err) {
-  //   console.log("Console already exists.");
-  // }
-  // else {
-  //   console.log(hits);
-  // }
-  // })
-// });
-
-
+//   }}).then(function(search){
+//     return res.json(search.count)
+//   })
 //
-// function getcount(fg,api){
+//     console.log("count"+JSON.stringify(count));
+// }
+// let add = (arg1, arg2)=> new Promise((resolve)=> {
+// setTimeout(()=> {
+// console.log('add executed');
+// resolve({result: arg1+arg2});
+// }, 1000);
+// });
+//
+//
+//
+// });
+// //  client.count({
+// //   index: 'called_api-'+FG,
+// // body: {
+// //   query: {
+// //     match: {
+// //       "api" : "result"
+// //     }
+// //   }
+// // }},
+// //   function(err,resp,status){
+// //     console.log("resp.count is " +parseInt(resp.count))
+// //     count = count + parseInt(resp.count)
+// //     //return res.json(responsedate);
+// //     return resp.count
+// //   }
+// // )
+// //const { count } = client.count({
+// //           index: 'error_log-2018.06.18'}).then(function(count){
+// //             console.log(count.count);
+// //
+// // client.search({
+// // index: 'called_api-'req.body.startDate
+// // },function(err,resp,status) {
+// // var hits = resp.hits.hits;
+// //
+// // if(err) {
+// //   console.log("Console already exists.");
+// // }
+// // else {
+// //   console.log(hits);
+// // }
+// // })
+//
+// router.post('/api_create_count', function(req,res) {
+//
 //   client.count({
-//    index: 'called_api-'+fg,
+//    index: 'called_api-'+req.body.startDate,
 //  body: {
 //    query: {
 //      match: {
-//        "api" : api
+//        "api" : "create"
 //      }
 //    }
 //  }},
 //     function(err,resp,status){
 //       var responsedate = {'ccount' : resp.count}
-//       console.log("ccount is " + resp.count)
-//       return responsedate;
+//       console.log(resp.count)
+//       return res.json(responsedate);
 //       // res.render('monitoring.ejs', {'count' : resp.count});
 //     }
 //   )
+//
+// });
+//
+// router.post('/api_delete_count', function(req,res) {
+//   //var test = req.body.startDate. - req.body.fromDate
+//   //console.log(test+ "날짜테스트")
+//   client.count({
+//    index: 'called_api-'+req.body.startDate,
+//  body: {
+//    query: {
+//      match: {
+//        "api" : "delete"
+//      }
+//    }
+//  }},
+//     function(err,resp,status){
+//       var responsedate = {'dcount' : resp.count}
+//       console.log(resp.count)
+//       return res.json(responsedate);
+//       // res.render('monitoring.ejs', {'count' : resp.count});
+//     }
+//   )
+//
+// });
+//
+//
+//
+//
+//
+// function getcount(fg, api){
+//   return new Promise(function(resolve, reject){
+//     client.count({
+//      index: 'called_api-'+fg,
+//    body: {
+//      query: {
+//        match: {
+//          "api" : api
+//        }
+//      }
+//    }}, function(err, resp, status){
+//      resolve(resp);
+//   }
+// )
+// })
 // }
+//
+//
+//
+// // function getcount(fg,api){
+// //   client.count({
+// //    index: 'called_api-'+fg,
+// //  body: {
+// //    query: {
+// //      match: {
+// //        "api" : api
+// //      }
+// //    }
+// //  }}).then(function(resp){
+// //    console.log(resp)
+// //     return resp.count;
+// //  })
+// // }
+//
+//
+// router.post('/api_create_count', function(req,res){
+//   var api = 'create'
+//   var fg = req.body.datefg
+//   console.log(fg)
+//     getcount(fg,api).then(function(resp){
+//       console.log(resp)
+//       res.send(resp)
+//     })
+// }
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getcount(fg, api){
   return new Promise(function(resolve, reject){
@@ -171,7 +303,11 @@ function getcount(fg, api){
        }
      }
    }}, function(err, resp, status){
-     resolve(resp);
+           resp.status=status;
+           resp.datefg=fg;
+           resp.api=api;
+           resolve(resp);
+
   }
 )
 })
@@ -200,96 +336,33 @@ router.post('/api_create_count', function(req,res){
   var fg = req.body.datefg
   console.log(fg)
     getcount(fg,api).then(function(resp){
-      console.log(resp)
+      console.log("Create resp"+JSON.stringify(resp))
       res.send(resp)
     })
-}
-  // var responsedate = {'ccount' : ccount}
-  // console.log("ccount is tt " + ccount)
-  // return res.json(responsedate);
+})
 
-)
+router.post('/api_delete_count', function(req,res){
+  var api = 'delete'
+  var fg = req.body.datefg
+  console.log(fg)
+    getcount(fg,api).then(function(resp){
+      console.log("DELETE resp"+JSON.stringify(resp))
+      res.send(resp)
+    })
+})
 
-// router.post('/api_delete_count', function(req,res){
-//   var fromDate =Date.parse(req.body.fromDate)
-//   var dcount = 0;
-//   var api = 'delete'
-//   for (var sd = new Date(req.body.startDate); sd <= fromDate; sd.setDate(sd.getDate() + 1)){
-//     var sd = formatDate(sd);
-//     dcount = dcount+parseInt(cnt)
-//     console.log("for dcount is " + dcount)
-// }
-//   var responsedate = {'dcount' : dcount}
-//   console.log("dcount is " + dcount)
-//   return res.json(responsedate);
-//
-// })
-//
-// router.post('/api_result_count', function(req,res){
-//   var fromDate =Date.parse(req.body.fromDate)
-//   var scount = 0;
-//   var api = 'result'
-//   for (var sd = new Date(req.body.startDate); sd <= fromDate; sd.setDate(sd.getDate() + 1)){
-//     var cnt = formatDate(sd);
-//     scount = scount+parseInt(cnt)
-// }
-//   var responsedate = {'scount' : scount}
-//   console.log("scount is " + scount)
-//   return res.json(responsedate);
-//
-// })
+router.post('/api_result_count', function(req,res){
+  var api = 'result'
+  var fg = req.body.datefg
+  console.log(fg)
+    getcount(fg,api).then(function(resp){
+      console.log("RESULT resp"+JSON.stringify(resp))
+      res.send(resp)
+    })
+})
 
 
 
-
-
-
-//
-// router.post('/api_create_count', function(req,res) {
-//   var fromDate =Date.parse(req.body.fromDate)
-//   for (var sd = new Date(req.body.startDate); sd <= fromDate; sd.setDate(sd.getDate() + 1)) {
-//   var FG = formatDate(sd)
-//   client.count({
-//    index: 'called_api-'+FG,
-//  body: {
-//    query: {
-//      match: {
-//        "api" : "create"
-//      }
-//    }
-//  }},
-//     function(err,resp,status){
-//       var responsedate = {'ccount' : resp.count}
-//       console.log("ccount is " + resp.count)
-//       //return res.json(responsedate);
-//       // res.render('monitoring.ejs', {'count' : resp.count});
-//     }
-//   )
-// }
-//
-// });
-
-// router.post('/api_delete_count', function(req,res) {
-//   //var test = req.body.startDate. - req.body.fromDate
-//   //console.log(test+ "날짜테스트")
-//   client.count({
-//    index: 'called_api-'+req.body.startDate,
-//  body: {
-//    query: {
-//      match: {
-//        "api" : "delete"
-//      }
-//    }
-//  }},
-//     function(err,resp,status){
-//       var responsedate = {'dcount' : resp.count}
-//       console.log(resp.count)
-//       return res.json(responsedate);
-//       // res.render('monitoring.ejs', {'count' : resp.count});
-//     }
-//   )
-//
-// });
 
 
 
